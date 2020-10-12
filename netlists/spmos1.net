@@ -1,0 +1,13 @@
+*PFET DC Simulation
+.model pmostabmod table3d (offset=0.0 gain=1 order=3 file="0negs1modelp.txt")
+*** NETLIST DESC ***
+amos1 %vd(nd 0) %vd(ng 0) %vd(ns 0) %id(ns nd) pmostabmod
+*amos1 %vd(ns 0) %vd(ng 0) %vd(nd 0) %id(ns 0) pmostabmod
+*R1 in ng 50
+Vout nd 0 49
+Vss ns 0 45
+Vin ng 0 0
+*** SIM Commands ***
+.dc Vin -24.99 50 0.01 Vout 0 20 10
+*Vout -24.99 50 0.01 Vin 0 20 10
+.end
